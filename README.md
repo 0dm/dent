@@ -13,6 +13,19 @@ dent <path_to_rom>
 
 `BREAKOUT`
 
+# Controls
+- F1: Pause
+- F4: Exit
+- F11: Toggle Fullscreen
+
+## Gamepad:
+```
+1 2 3 4
+q w e r
+a s d f
+z x c v
+```
+
 # TODO:
 ```diff
 -Add Sound
