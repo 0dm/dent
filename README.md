@@ -26,6 +26,9 @@ a s d f
 z x c v
 ```
 
+# cmake or build with 
+`g++ main.cpp CPU/CPU.cpp GFX/GFX.cpp -lmingw32 -lSDL2main -lSDL2 -O3 -o dent.exe`
+
 # TODO:
 ```diff
 -Add Sound
