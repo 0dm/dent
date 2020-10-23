@@ -15,23 +15,24 @@ bool CPU::readMem(const std::string &file)
   std::ifstream finput(file, std::ios::binary);
   currentGame = file;
 
-  if (finput.bad())
+  if (finput.good())
   {
+
+    finput.peek();
+    for (int i = 0; !finput.eof() && (i + 0x200 < 0xFFF); ++i)
+      mem[i + 0x200] = finput.get();
+
+    if (finput.peek() != EOF)
+    {
+      fprintf(stderr, "ROM uses too much memory.");
+      return false;
+    }
+    finput.close();
+    return true;
+  }
+  else
     fprintf(stderr, "Unable to read ROM");
-    return false;
-  }
-
-  finput.peek();
-  for (int i = 0; !finput.eof() && (i + 0x200 < 0xFFF); ++i)
-    mem[i + 0x200] = finput.get();
-
-  if (finput.peek() != EOF)
-  {
-    fprintf(stderr, "ROM uses too much memory.");
-    return false;
-  }
-  finput.close();
-  return true;
+  return false;
 }
 
 void CPU::runCycle() // Comments from https://en.wikipedia.org/wiki/CHIP-8
@@ -49,7 +50,7 @@ void CPU::runCycle() // Comments from https://en.wikipedia.org/wiki/CHIP-8
       switch (OPCODE & 0x000F)
       {
         case 0x0000: // 0x00E0: Clears the screen
-          for (unsigned char & i : gfx)
+          for (unsigned char &i : gfx)
           {
             i = 0;
           }
@@ -78,7 +79,6 @@ void CPU::runCycle() // Comments from https://en.wikipedia.org/wiki/CHIP-8
       SP++;
       PC = OPCODE & 0x0FFF;
       break;
-
 
 
     case 0x3000: // 0x3XNN: Skips the next instruction if VX equals NN.
@@ -332,6 +332,7 @@ void CPU::runCycle() // Comments from https://en.wikipedia.org/wiki/CHIP-8
 
         default:
           printf("UNKNOWN INSTRUCTION [0x0000]: 0x%X\n", OPCODE);
+          exit(1);
       }
       break;
 
@@ -371,5 +372,19 @@ void CPU::setDrawFlag(bool value)
 {
   this->DF = value;
 }
+
+void CPU::reload()
+{
+  this->PC = 0x200;
+
+  for (int i = 0x50; i < 0x1000; i++)
+    mem[i] = 0;
+
+  for (unsigned char &i : gfx)
+    i = 0;
+
+  readMem(this->currentGame);
+}
+
 
 

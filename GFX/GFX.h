@@ -1,7 +1,7 @@
 #ifndef DENT_GFX_H
 #define DENT_GFX_H
 #if defined(WIN32)
-  #include "..\External\mingw-std-threads\mingw.thread.h"
+  #include "..\External\mingw-std-threads\mingw.thread.h" // Can't assume POSIX threads available...
 #else
   #include <thread>
 #endif
@@ -38,6 +38,13 @@ private:
     // Dimensions
     int width;
     int height;
+
+    int delay;
+    int queueTitle;
+    bool fullscreen;
+    std::string title;
+    void sendMsg(std::string msg);
+
 
 public:
     GFX(int width, int height, CPU device);

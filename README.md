@@ -1,8 +1,6 @@
 # dent - a CHIP-8 interpreter
 Includes some free ROMs to try.
 
-# Requires SDL2
-## Keep SDL2.dll in the same directory as dent.exe
 usage:
 ```
 dent <path_to_rom>
@@ -15,6 +13,7 @@ dent <path_to_rom>
 
 # Controls
 - F1: Pause
+- F2: Restart Game
 - F4: Exit
 - F11: Toggle Fullscreen
 
@@ -27,7 +26,10 @@ z x c v
 ```
 
 # Build
-use cmake or build with `g++ main.cpp CPU/CPU.cpp GFX/GFX.cpp -lmingw32 -lSDL2main -lSDL2 -O3 -o dent.exe`
+GCC: `g++ main.cpp CPU/CPU.cpp GFX/GFX.cpp -lmingw32 -lSDL2main -lSDL2 -O3 -o dent.exe`
+
+Run `mingw_makefile.bat` to use CMake with MinGW
+
 
 # TODO:
 ```diff

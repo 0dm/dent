@@ -44,14 +44,15 @@ private:
 
     bool DF; // Draw Flag
 
+
+    void nextInstruction();
+    void skipInstruction();
+
 public:
 
     CPU();
+
     void runCycle();
-
-    void nextInstruction();
-
-    void skipInstruction();
 
     bool readMem(const std::string &file);
 
@@ -60,6 +61,8 @@ public:
     void setDrawFlag(bool value);
 
     void setKey(uint8_t key, uint8_t value);
+
+    void reload();
 
     bool paused;
     std::string currentGame;
