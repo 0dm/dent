@@ -11,22 +11,22 @@
 #define keysym key.keysym.sym
 
 static uint8_t keyPad[0x10] = {
-        SDLK_1,
-        SDLK_2,
-        SDLK_3,
-        SDLK_4,
-        SDLK_q,
-        SDLK_w,
-        SDLK_e,
-        SDLK_r,
-        SDLK_a,
-        SDLK_s,
-        SDLK_d,
-        SDLK_f,
-        SDLK_z,
-        SDLK_x,
-        SDLK_c,
-        SDLK_v,
+    SDLK_x, // 0
+    SDLK_1, // 1
+    SDLK_2, // 2
+    SDLK_3, // 3
+    SDLK_q, // 4
+    SDLK_w, // 5
+    SDLK_e, // 6
+    SDLK_a, // 7
+    SDLK_s, // 8
+    SDLK_d, // 9
+    SDLK_z, // A
+    SDLK_c, // B
+    SDLK_4, // C
+    SDLK_r, // D
+    SDLK_f, // E
+    SDLK_v  // F
 };
 
 class GFX
