@@ -16,6 +16,8 @@ dent <path_to_rom>
 - F2: Restart Game
 - F4: Exit
 - F11: Toggle Fullscreen
+- Down: Increase Game Speed (+100ms)
+- Up: Decrease Game Speed (-100ms)
 
 ## Gamepad:
 ```
