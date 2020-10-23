@@ -6,10 +6,14 @@ usage:
 dent <path_to_rom>
 ```
 
-# Screenshot
+# Screenshots
 ![Breakout](docs/img/breakout.png)
 
 `BREAKOUT`
+
+![PONG](docs/img/PONG.png)
+
+`PONG`
 
 # Controls
 - F1: Pause
