@@ -77,7 +77,7 @@ GFX::GFX(int width, int height, CPU device) : delay(1100), fullscreen(false), qu
           {
             if (SDLe.keysym == keyPad[i])
             {
-              this->device.setKey(i, 1);
+              this->device.key[i] = 1;
             }
           }
         }
@@ -89,7 +89,7 @@ GFX::GFX(int width, int height, CPU device) : delay(1100), fullscreen(false), qu
           {
             if (SDLe.keysym == keyPad[i])
             {
-              this->device.setKey(i, 0);
+              this->device.key[i] = 0;
             }
           }
         }
@@ -139,7 +139,7 @@ void GFX::initialize()
 
 }
 
-void GFX::sendMsg(std::string msg)
+void GFX::sendMsg(const std::string& msg)
 {
   queueTitle = 800;
   SDL_SetWindowTitle(window, msg.c_str());

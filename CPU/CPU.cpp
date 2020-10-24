@@ -29,8 +29,7 @@ bool CPU::readMem(const std::string &file)
     }
     finput.close();
     return true;
-  }
-  else
+  } else
     fprintf(stderr, "Unable to read ROM");
   return false;
 }
@@ -361,11 +360,6 @@ void CPU::skipInstruction()
 bool CPU::readDrawFlag() const
 {
   return this->DF;
-}
-
-void CPU::setKey(uint8_t i, uint8_t value)
-{
-  this->key[i] = value;
 }
 
 void CPU::setDrawFlag(bool value)

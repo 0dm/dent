@@ -40,12 +40,12 @@ private:
     uint8_t V[0x10]; // Registers
     uint8_t DT; // Delay timer
     uint8_t ST; // Sound Timer
-    uint8_t key[0x10]; // Keys
 
     bool DF; // Draw Flag
 
 
     void nextInstruction();
+
     void skipInstruction();
 
 public:
@@ -60,13 +60,12 @@ public:
 
     void setDrawFlag(bool value);
 
-    void setKey(uint8_t key, uint8_t value);
-
     void reload();
 
     bool paused;
     std::string currentGame;
     uint8_t gfx[64 * 32]; // Original CHIP-8 Display resolution is 64×32 pixels.
+    uint8_t key[0x10]; // Keys
 };
 
 
