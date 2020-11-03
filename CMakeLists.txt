@@ -16,7 +16,7 @@ set(CMAKE_CXX_FLAGS_RELEASE  "-O3")
 
 add_executable(dent ${src} main.cpp)
 
-target_link_libraries(dent mingw32 SDL2main SDL2)
+target_link_libraries(dent mingw32 SDL2main SDL2 -static-libgcc -static-libstdc++)
 
 add_custom_command(TARGET dent POST_BUILD COMMAND ${CMAKE_COMMAND} -E copy_directory "${PROJECT_SOURCE_DIR}/libs"
         $<TARGET_FILE_DIR:dent>)
