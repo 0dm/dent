@@ -44,9 +44,9 @@ private:
     bool DF; // Draw Flag
 
 
-    void nextInstruction();
+    inline void nextInstruction();
 
-    void skipInstruction();
+    inline void skipInstruction();
 
 public:
 

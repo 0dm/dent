@@ -347,12 +347,12 @@ void CPU::runCycle() // Comments from https://en.wikipedia.org/wiki/CHIP-8
     ST--;
 }
 
-void CPU::nextInstruction()
+inline void CPU::nextInstruction()
 {
   PC += 2;
 }
 
-void CPU::skipInstruction()
+inline void CPU::skipInstruction()
 {
   PC += 4;
 }
